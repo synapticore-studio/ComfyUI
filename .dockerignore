@@ -1,0 +1,47 @@
+# Git
+.git
+.gitignore
+.gitattributes
+
+# Python
+__pycache__
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+env/
+ENV/
+
+# IDE
+.vscode
+.idea
+*.swp
+*.swo
+*~
+
+# Testing
+.pytest_cache
+.coverage
+htmlcov/
+
+# Documentation
+*.md
+!README.md
+docs/
+
+# CI/CD
+.github/
+.ci/
+
+# Models and data (large files that should be downloaded separately)
+models/*
+input/*
+output/*
+temp/*
+
+# Custom nodes (users can add their own)
+custom_nodes/*
+
+# Logs
+*.log
