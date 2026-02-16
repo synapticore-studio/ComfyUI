@@ -49,6 +49,11 @@ ComfyUI lets you design and execute advanced stable diffusion pipelines using a 
 #### [Manual Install](#manual-install-windows-linux)
 Supports all operating systems and GPU types (NVIDIA, AMD, Intel, Apple Silicon, Ascend).
 
+#### [Docker](#docker-deployment)
+- Run ComfyUI in a containerized environment.
+- Weekly automated builds available on GitHub Container Registry.
+- See [DOCKER.md](DOCKER.md) for detailed instructions.
+
 ## [Examples](https://comfyanonymous.github.io/ComfyUI_examples/)
 See what ComfyUI can do with the [example workflows](https://comfyanonymous.github.io/ComfyUI_examples/).
 
@@ -324,6 +329,50 @@ For models compatible with Iluvatar Extension for PyTorch. Here's a step-by-step
 
 1. Install the Iluvatar Corex Toolkit by adhering to the platform-specific instructions on the [Installation](https://support.iluvatar.com/#/DocumentCentre?id=1&nameCenter=2&productId=520117912052801536)
 2. Launch ComfyUI by running `python main.py`
+
+
+## Docker Deployment
+
+ComfyUI can be run in a Docker container with automated weekly builds.
+
+### Quick Start
+
+```bash
+# Pull the latest image
+docker pull ghcr.io/synapticore-studio/comfyui:latest
+
+# Run ComfyUI
+docker run -d \
+  --name comfyui \
+  -p 8188:8188 \
+  -v $(pwd)/models:/app/models \
+  -v $(pwd)/input:/app/input \
+  -v $(pwd)/output:/app/output \
+  ghcr.io/synapticore-studio/comfyui:latest
+```
+
+Access ComfyUI at: http://localhost:8188
+
+### GPU Support
+
+For NVIDIA GPU support:
+
+```bash
+docker run -d \
+  --name comfyui \
+  --gpus all \
+  -p 8188:8188 \
+  -v $(pwd)/models:/app/models \
+  ghcr.io/synapticore-studio/comfyui:latest
+```
+
+### More Information
+
+See [DOCKER.md](DOCKER.md) for detailed Docker instructions including:
+- Automated weekly builds
+- Docker Compose setup
+- Volume configuration
+- Building locally
 
 
 ## [ComfyUI-Manager](https://github.com/Comfy-Org/ComfyUI-Manager/tree/manager-v4)
