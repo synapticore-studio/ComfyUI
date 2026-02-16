@@ -28,6 +28,7 @@ htmlcov/
 # Documentation
 *.md
 !README.md
+!DOCKER.md
 docs/
 
 # CI/CD
